@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Curso JS</title>
+  </head>
+  <body>
+    <div class="botao">  
+      <button onclick="redBox()" class="botao">Gerar quadrado vermelho</button>
+    </div>
+    <div class="resultado"></div>
+
+    <script>
+
+         
+         
+      
+      function redBox() {
+          
+      
+        var boxElement = document.createElement("div");
+        
+
+        var containerElement = document.querySelector("div.resultado")              
+
+        boxElement.style.marginTop = 3;        
+        boxElement.style.height = 100;
+        boxElement.style.width = 100;
+        boxElement.style.backgroundColor = 'red';
+          
+
+        containerElement.appendChild(boxElement);
+        
+      };
+      
+
+
+    </script>
+  </body>
+</html>

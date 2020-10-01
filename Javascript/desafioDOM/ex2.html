@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Curso JS</title>
+  </head>
+  <body>
+    <div class="botao">  
+      <button onclick="redBox()" class="botao">Gerar quadrado vermelho</button>
+    </div>
+    <div class="resultado"></div>
+
+    <script>
+
+      function getRandomColor() {
+
+        var letters = "0123456789ABCDEF";
+        var color = "#";
+        for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+        }
+      
+            
+      
+      function redBox() {
+          
+      
+        var boxElement = document.createElement("div");
+        
+
+        var containerElement = document.querySelector("div.resultado")              
+
+        boxElement.style.marginTop = 3;        
+        boxElement.style.height = 100;
+        boxElement.style.width = 100;
+        boxElement.style.backgroundColor = 'red';
+          
+
+        containerElement.appendChild(boxElement);
+        
+        boxElement.onmouseover = function() { 
+          var newColor = getRandomColor(); // #E943F0
+          boxElement.style.backgroundColor = newColor;
+      };
+      }
+
+
+    </script>
+  </body>
+</html>

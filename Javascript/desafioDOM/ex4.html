@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Curso JS</title>
+  </head>
+  <body>
+    <div class="input">
+      <input type="text" name="nome" class="nome" placeholder="Digite o nome"/>
+      <button type="button" onclick="adicionar()">Adicionar à lista</button>
+    </div>
+    <div class="resultado"></div>
+  
+    <script>
+
+
+      var nomes = ["Diego", "Gabriel", "Lucas","William","Dafoe"];
+      var listVector = document.querySelector("div.resultado");
+
+      for(i=0; i<nomes.length;i++) {
+
+        var itemVector = document.createElement("li");
+        itemVector.setAttribute("class","lista");
+        itemVector.innerText = nomes[i];
+
+        listVector.appendChild(itemVector);
+
+      }
+      
+      function adicionar() {
+        
+        var inputValue = document.querySelector(".nome").value;
+        var listNewName = document.createElement("li");
+
+        listNewName.setAttribute("class","lista");
+
+        if (inputValue.length > 0 ) {
+
+          listNewName.innerText = inputValue;
+
+          listVector.appendChild(listNewName);
+               
+          var clearInput = document.querySelector(".nome").value ='';
+          
+        } else {
+          alert('Digite um nome');        }
+      }
+      
+    </script>
+  </body>
+</html>

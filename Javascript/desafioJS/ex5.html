@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Curso JS</title>
+  </head>
+  <body>
+
+    <script>
+     
+      function habilidades(objects) {
+
+        var resultado = "";
+
+        for (let value of objects) {
+          resultado = "O " + value.nome + " possui as habilidades: " + value.habilidades.join(',');
+          console.log(resultado);
+        }
+      }
+
+      var usuarios = [
+        {
+          nome: "Diego",
+          habilidades: [" Javascript ", " ReactJS ", " Redux"]
+        },
+        {
+          nome: "Gabriel",
+          habilidades: ["VueJS", " Ruby on Rails ", " Elixir"]
+        },
+        {
+          nome: "Arthur",
+          habilidades: ["Javascript", " ReactJS ", " React Native"]
+        }
+      ];
+
+      habilidades(usuarios);
+
+    </script>
+  </body>
+</html>

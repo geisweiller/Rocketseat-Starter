@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Curso JS</title>
+  </head>
+  <body>
+     <div id="app">
+      <input type="text" name="user">
+      <button onclick="">Adicionar</button>
+      <ul></ul>
+     </div>   
+    <script>
+      var inputElement = document.querySelector("#app input"); //Seleciona o input
+      var btnElement = document.querySelector("#app button"); //Seleciona o botão
+      var listElement = document.querySelector("#app ul"); //Seleciona a lista
+        
+      function renderRepos(repos) {
+        listElement.innerHTML = "";
+              
+            
+        for(repo of repos) {
+
+          var repoElement = document.createElement('li');
+          var repoName = document.createTextNode(repo.name);
+
+        
+          repoElement.appendChild(repoName);
+          listElement.appendChild(repoElement);
+        }
+      }
+
+      function listRepos() {
+        var userName = inputElement.value;
+
+        if(!userName) return;
+
+        loading();
+        
+        axios.get('https://api.github.com/users/' + userName + '/repos')
+        .then(function(response){
+          renderRepos(response.data);     
+        })
+        .catch(function(){
+          error();
+        }); 
+      }
+
+    
+      function loading() {
+        listElement.innerHTML = '';
+        
+        var loadingElement = document.createElement('li');
+        var loadingText = document.createTextNode('Carregando...')
+
+        loadingElement.appendChild(loadingText);
+        listElement.appendChild(loadingElement);
+      }
+
+
+      function error(){
+        listElement.innerHTML = '';
+        
+        alert('Erro 404 - Usuário não encontrado')
+      };
+
+      btnElement.onclick = function () {
+        return listRepos();
+      };
+    </script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </body>
+</html>

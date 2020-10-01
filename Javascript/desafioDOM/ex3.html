@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Curso JS</title>
+  </head>
+  <body>
+    <div class="resultado"></div>
+  
+    <script>
+
+      var nomes = ["Diego", "Gabriel", "Lucas","William","Dafoe"];
+      var listVector = document.querySelector("div.resultado");
+
+      for(i=0; i<nomes.length;i++) {
+
+        var itemVector = document.createElement("li");
+        itemVector.innerText = nomes[i];
+
+        listVector.appendChild(itemVector);
+
+      }
+
+      
+    </script>
+  </body>
+</html>
